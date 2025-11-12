@@ -8,15 +8,16 @@ bot = telebot.TeleBot(CHAVE_API)
 
 @bot.message_handler(commands=["opcao1"])
 def opcao1(mensagem):
-    pass
+    bot.send_message(mensagem.chat.id, "Aguarde na sua mesa, o garçom ja irá te atender!")
 
 @bot.message_handler(commands=["opcao2"])
 def opcao2(mensagem):
-    pass
+    bot.send_message(mensagem.chat.id, "link do menu.")
 
 @bot.message_handler(commands=["opcao3"])
 def opcao3(mensagem):
-    bot.reply_to(mensagem,"Ok, dentro de alguns minutos o gerente irá na sua mesa!")
+    bot.send_message(mensagem.chat.id, "Ok, dentro de alguns minutos o gerente irá na sua mesa!") # esse comando o bot responde a mensagem sem marcar a conversa 
+    
     
 
 
@@ -29,7 +30,7 @@ def verificar(mensagem):
 def responder(mensagem): #função para ter uma resposta inicial ao utilizar o bot
     texto =""" 
     Olá, aqui é o bot do João!Escolha uma opção para continuar.(Clique no item):
-        /opcao1 Fzer um pedido
+        /opcao1 Fazer um pedido
         /opcao2 Ver Menu
         /opcao3 Reclamar de um pedido
         Responder qualquer coisa não irá funcionar, clique em uma das opções acima."""
